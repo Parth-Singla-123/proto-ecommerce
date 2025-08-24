@@ -1,0 +1,28 @@
+<%- include('partial/header.ejs'); -%>
+
+        <% for( let item of listItems ) { %>
+            <div class="product-card" data-name="Product 1" data-price="20" data-stock="15">
+                <h2><%= item.product_name %></h2>
+                <p>Price: <%= item.price %></p>
+                <p>Stock: <%=item.stock%></p>
+                <button onclick="addToCart(item.product_name, item.price, item.stock)">Add to Cart</button>
+            </div>
+        <% } %>
+        <!-- Product Cards -->
+
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <h2>Shopping Cart</h2>
+                <ul id="cartItems"></ul>
+                <p>Total: $<span id="cartTotal">0.00</span></p>
+                <button onclick="checkout()">Proceed to Checkout</button>
+                <button onclick="closeCart()">Close</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Modal Cart -->
+
+    <script src="/script.js"></script>
+<%- include('partial/footer.ejs'); -%>
